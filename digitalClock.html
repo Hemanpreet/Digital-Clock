@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .heading{
+            display: flex;
+            background-color: rgb(218, 74, 74);
+            justify-content: center;
+            align-items: center;
+            height:50px;
+
+        }
+        .container{
+            padding:32px 0;
+            display:flex;
+            background-color: aqua;
+            justify-content: center;
+            align-items: center;
+            border:5px solid black;
+        }
+    </style>
+    <script>
+        let a;
+        let date;
+        let time;
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        setInterval(() => {
+            a = new Date(); 
+            date = a.toLocaleDateString(undefined, options);
+            time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            document.getElementById('time').innerHTML = time + "<br>on " + date;
+        }, 1000);//We give interval of 1000ms so that code runs again and again after 1s(1000ms)
+    </script>
+</head>
+
+<body>
+    <div class="heading"><b>DISPLAYING CURRENT TIME AND DATE</b></div>
+    <div class="container ">
+            <h1 class>Current time is: <span id="time"></span></h1>
+        </div>
+    </div>
+</body>
+
+</html>
